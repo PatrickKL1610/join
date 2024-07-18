@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+
+    <!-- Include favicon.ico picture -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.svg">
+
+    <!-- Schriftart einbinden -->
+    <link rel="stylesheet" href="../fonts.css">
+
+    <!-- CSS Datei einbinden -->
+    <link rel="stylesheet" href="../css/add_task.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/contacts.css">
+    <!--jquery for datepicker-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--js Dateien einbinden-->
+    <script src="../js/w3includes.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/templates.js"></script>
+    <script src="../js/add_category.js"></script>
+    <script src="../js/task_contacts.js"></script>
+    <script src="../js/contacts.js"></script>
+</head>
+
+<body onload="loadIncludeHTML(), initTask(), addTaskLoadContacts()">
+
+    <div w3-include-html="../assets/templates/header.html"></div>
+    <div w3-include-html="../assets/templates/sidebar.html"></div>
+
+    <div class="addTask" id="taskContent">
+        <h3>Add Task</h3>
+
+        <div class="formAddTask">
+            <div class="formInput">
+                <div class="leftSide" id="leftSide">
+
+                    <div class="inputContainer">
+                        <label class="required" for="title">Title</label>
+                        <input class="inputField" required type="text" id="title" placeholder="Enter a title">
+                        <div class="warning">
+                            <span id="warningtitle" class="invisible">This field is requiered</span>
+                        </div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="description">Description</label>
+                        <textarea class="inputField description" minlength="5" id="description" rows="8" cols="50"
+                            placeholder="Enter a Description"></textarea>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="assignedTo">Assigned to</label>
+                        <input oninput="filterContacts()" onclick="filterContacts()" class="custom-select" id="assignedTo" type="text" placeholder="Select contacts to assign">
+                        <div class="d-none assignedToContainer" id="assignedToContainer">
+                        </div>
+                    </div>
+                    <div id="showAssignedContacts"></div>                    
+                </div>
+
+                <div class="divider">
+                </div>
+
+                <div class="rightSide">
+
+                    <div class="inputContainer">
+                        <label class="required" for="dueDate">Due date</label>
+                        <input class="inputField" required placeholder="dd/mm/yyyy" type="text" id="dueDate">
+                        <div class="warning">
+                            <span id="warningDueDate" class="invisible">This field is requiered</span>
+                        </div>
+                    </div>
+
+
+                    <div class="inputContainer">
+                        <label class="required">Prio</label>
+                        <div class="button-container" id="prio">
+                            <button class="${prio === 'urgent' ? 'urgent' : 'white'}" id="urgent"
+                                onclick="selectTaskPrio('urgent')" type="button">Urgent<img
+                                    src="../assets/img/urgent.svg" alt=""></button>
+                            <button class="${prio === 'medium' ? 'medium' : 'white'}" id="medium"
+                                onclick="selectTaskPrio('medium')" type="button">Medium<img
+                                    src="../assets/img/medium.svg" alt=""></button>
+                            <button class="${prio === 'low' ? 'low' : 'white'}" id="low" onclick="selectTaskPrio('low')"
+                                type="button">Low<img src="../assets/img/low.svg" alt=""></button>
+                        </div>
+                        <div class="warning">
+                            <span id="warningPrio" class="invisible">This field is required</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="inputContainer">
+                        <label class="required" for="category">Category</label>
+                        <div>
+                            <select class="custom-select" onfocus="updateCategorySelect()" id="category" name="category"
+                                onchange="handleCategoryChange()" required>
+                                <option value="" disabled selected hidden>Select task category</option>
+                            </select>
+                            <div id="inputCategory" class="inputField subtaskContainer d-none">
+                                <input type="text" id="newCategory" placeholder="Type..." value="">
+                                <img src="../assets/img/close.svg" onclick="clearInput()">
+                                <div>|</div>
+                                <img src="../assets/img/check-black.svg" onclick="addCategory()">
+                            </div>
+                        </div>
+                        <div class="warning">
+                            <span id="warningcategory" class="invisible">This field is required</span>
+                        </div>
+                    </div>
+
+
+                    <div class="inputContainer">
+                        <label for="subtask">Subtask</label>
+                        <div class="inputField subtaskContainer">
+                            <input type="text" id="subtask" placeholder="Add new subtask" onfocus="switchToInput()">
+                            <div id="addSubtask">
+                                <img src="../assets/img/add.svg" onclick="switchToInput()">
+                            </div>
+                            <div id="inputsubtask" style="display: none;">
+                                <img src="../assets/img/close.svg" onclick="delInput()">
+                                <div>|</div>
+                                <img src="../assets/img/check-black.svg" onclick="addSubtask()">
+                            </div>
+                        </div>
+                        <div id="savedSubtasks" class="savedSubtasks">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footArea">
+                <p><sup class="required"></sup>This field is required</p>
+                <div class=btnAddTask>
+                    <button class="cancelBtn" onclick="reload()">Clear
+                        <img src="../assets/img/cancel.svg">
+                    </button>
+                    <button class="activeBtn" onclick="addTask('todo')">Create Task <img src="../assets/img/check.svg"
+                            alt=""></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/add_task.js"></script>
+    <script src="../js/add_subtask.js"></script>
+    <script src="../js/events_add_task.js"></script>
+</body>
+
+</html>

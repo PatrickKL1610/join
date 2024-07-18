@@ -1,0 +1,720 @@
+body {
+    margin: 0;
+    background: #F6F7F8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Style LogIn Template */
+
+.img-size-login {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    /*transition: all 100ms ease-in-out 200ms; !* Animationseffekte mit Delay *!*/
+}
+
+/* Keyframes-Animation für das Endziel */
+@keyframes slideAndResize {
+    0% {
+        width: 274px;
+        height: 334.07px;
+        top: 50%;
+        left: 50%;
+    }
+    100% {
+        width: 100.03px;
+        height: 121.97px;
+        top: 80px;
+        left: 77px;
+        transform: none;
+    }
+}
+
+.img-size-login.animate {
+    animation: slideAndResize 2000ms ease-in-out forwards;
+}
+
+.frame156 {
+    visibility: hidden;
+    position: absolute;
+    top: 67px;
+    left: 0;
+    right: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 35px;
+}
+
+.query-user {
+    width: 153px;
+    height: 24px;
+    font-family: 'Inter', SansSerif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.btn-dark {
+    background: #2A3647;
+    color: #ffffff;
+    width: 91px;
+    height: 49px;
+    padding: 15px 16px 15px 16px;
+    border: none;
+    border-radius: 8px;
+    /*gap: 10px;*/
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background: #29ABE2;
+}
+
+.frame153 {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+    max-width: 422px;
+    height: 397px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    padding: 48px 115px;
+    visibility: hidden;
+    gap: 32px;
+}
+
+.frame159 {
+    width: 315px;
+    height: 89px;
+    gap: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+h1 {
+    width: 315px;
+    height: 73px;
+    font-family: 'Inter', sans-serif;
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+    color: #000000;
+    margin: 0;
+}
+
+.underline {
+    border: 3px solid;
+    border-color: #29ABE2;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.frame250 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 422px;
+    height: 196px;
+    gap: 20px;
+}
+
+.login {
+    width: 422px;
+    height: 152px;
+    gap: 32px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #D1D1D1;
+    display: flex;
+    flex-direction: column;
+}
+
+.frame155, .frame156 {
+    display: flex;
+    gap: 35px;
+}
+
+.frame14 {
+    width: 380px;
+    height: 24px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 21px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-login {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    border: none;
+    outline: none;
+}
+
+::placeholder {
+    color: #D1D1D1;
+    opacity: 1; /* Firefox */
+}
+
+.input-asterisk {
+    -webkit-text-security: initial;
+}
+
+.frame157, .frame158 {
+    width: 380px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-email {
+    width: 20px;
+    height: 16px;
+}
+
+.img-lock {
+    width: 16px;
+    height: 21px;
+    object-fit: contain;
+}
+
+.remember-password {
+    width: 422px;
+    height: 24px;
+    position: relative;
+    left: 39px;
+}
+
+/* Stil für die Checkbox */
+.remember-password input[type="checkbox"] {
+    display: none; /* Verberge die Standard-Checkbox */
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: #A8A8A8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.frame176 {
+    display: flex;
+    justify-content: center;
+    width: 330px;
+    height: 35px;
+    gap: 35px;
+    padding-top: 48px;
+}
+
+.btn-login {
+    background: #2A3647;
+    color: #ffffff;
+    width: 110px;
+    height: 48px;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-login:hover {
+    background: #29ABE2;
+}
+
+.btn-guest {
+    background: #ffffff;
+    color: #2A3647;
+    width: 182px;
+    height: 48px;
+    padding: 15px 24px;
+    border: 1px solid #2A3647;
+    border-radius: 8px;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-guest:hover {
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+}
+
+.frame213 {
+    gap: 40px;
+    display: flex;
+    padding: 8px;
+    bottom: 32px;
+    position: absolute;
+    visibility: hidden;
+}
+
+a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: #A8A8A8;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #29ABE2;
+    font-weight: 700;
+}
+
+.img-visibility {
+    width: 21.65px;
+    height: 18.95px;
+}
+
+.icon-checked {
+    display: none;
+}
+
+.div-156 {
+    position: relative;
+}
+
+.wrong-password {
+    color: #FF8190;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 15.6px */
+    padding-top: 8px;
+    position: absolute;
+    top: 50px;
+}
+
+.no-email {
+    color: #FF8190;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 15.6px */
+    padding-top: 8px;
+    position: absolute;
+    top: 442px;
+}
+
+/* Styling SignUp Template */
+
+#signUp-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background: #ffffff;
+    border-radius: 30px;
+    gap: 32px;
+    padding: 48px 88px;
+    width: 422px;
+    height: 534px;
+}
+
+.frame159-2 {
+    width: 315px;
+    height: 89px;
+    gap: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frame212 {
+    width: 422px;
+    height: 326px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.frame160 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.img-person {
+    width: 16px;
+    height: 16px;
+}
+
+.frame14-signUp {
+    height: 24px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 21px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.privacy-policy-check {
+    width: 422px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+/* Stil für die Checkbox */
+.privacy-policy-check input[type="checkbox"] {
+    display: none; /* Verberge die Standard-Checkbox */
+}
+
+#btn-privacy-policy {
+    border: none;
+    color: #29ABE2;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 19.2px;
+    background: none;
+    padding: 0;
+}
+
+#btn-privacy-policy:hover {
+    text-decoration: underline;
+}
+
+#btn-signup {
+    background: #2A3647;
+    color: #ffffff;
+    width: 126px;
+    height: 55px;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: Inter;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 25.2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#btn-signup:hover {
+    background: #29ABE2;
+}
+
+.btn-signup-container {
+    display: flex;
+    justify-content: center;
+}
+
+.success-overlay.animate {
+    animation: slideOverlay 1000ms ease-in-out forwards;
+}
+
+.success-overlay {
+    width: 312px;
+    height: 74px;
+    border-radius: 20px;
+    padding: 0 25px;
+    background: #2A3647;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -100px;
+    transition: all 100ms ease-in-out 200ms; /* Animationseffekte mit Delay */
+}
+
+
+/* Keyframes-Animation für das Endziel */
+@keyframes slideOverlay {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 45%;
+    }
+}
+
+.success-message {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #ffffff;
+}
+
+body.animate {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.arrow-left-line {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 64px;
+    top: 48px;
+    display: flex;
+}
+
+.arrow-left {
+    width: 21.33px;
+    height: 20.74px;
+    margin: auto;
+}
+
+/* style media-queries */
+
+@media (max-width: 1050px) {
+
+    .frame213 {
+        justify-content: center;
+        position: relative;
+        top: 80px;
+    }
+
+    .frame155, .div-156 {
+        justify-content: center;
+        display: flex;
+    }
+
+    .frame14, .frame159, .frame14-signUp {
+        width: 250px;
+        gap: 0;
+    }
+
+    .remember-password {
+        display: flex;
+        justify-content: center;
+        left: 0;
+    }
+
+    .frame176 {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 90px;
+    }
+
+    .frame153 {
+        padding: 15px 0px 80px;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    .underline {
+        width: 92px;
+    }
+
+    #logInTemplate {
+        position: relative;
+        top: 55px;
+    }
+
+    .login {
+        align-items: center;
+    }
+
+    .frame160 {
+        gap: 16px;
+    }
+
+    @keyframes slideAndResize {
+        0% {
+            width: 100.03px;
+            height: 121.97px;
+            top: 50%;
+            left: 50%;
+        }
+        100% {
+            width: 64px;
+            height: 78.031px;
+            top: 30px;
+            left: 30px;
+            transform: none;
+        }
+    }
+
+    #signUp-container {
+        padding: 10px 22px;
+    }
+
+    .no-email {
+        top: 168px;
+    }
+}
+
+@media (max-width: 570px) {
+    .frame213 {
+        top: 105px;
+    }
+
+    .frame156 {
+        top: 720px;
+        justify-content: center;
+        right: 0;
+    }
+
+    .frame153 {
+        width: 300px;
+        padding-bottom: 0;
+        padding-top: 20px;
+        height: 410px;
+    }
+
+    .frame14, .frame14-signUp {
+        width: 200px;
+        height: 20px;
+    }
+
+    .input-login {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .btn-login, .btn-guest, #btn-signup {
+        font-size: 16px;
+        justify-content: center;
+        height: 36px;
+    }
+
+    .btn-guest {
+        width: 148px;
+    }
+
+    .frame176 {
+        gap: 16px;
+        padding-top: 33px;
+    }
+
+    .remember-password {
+        top: -8px;
+    }
+
+    .login {
+        gap: 30px;
+    }
+
+    .frame159 {
+        gap: 8px;
+        padding-bottom: 0;
+    }
+
+    #logInTemplate {
+        top: 30px;
+    }
+
+    .query-user {
+        font-size: 16px;
+    }
+
+    .frame156 {
+        gap: 8px;
+    }
+
+    .btn-dark {
+        height: 36px;
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        font-size: 14px;
+    }
+
+    #signUp-container {
+        padding: 10px 0px;
+        width: 300px;
+        top: 72px;
+        height: 500px;
+    }
+
+    .frame159-2 {
+        gap: 8px;
+    }
+
+    .arrow-left-line {
+        top: 32px;
+        left: 10px;
+    }
+
+    .wrong-password {
+        top: 42px;
+    }
+
+    .no-email {
+        top: 162px;
+    }
+}
+
+@media (max-width: 414px) {
+    .frame156 {
+        top: 695px;
+    }
+}
+
+@media (max-width: 413px) {
+    .frame156 {
+        top: 665px;
+    }
+}
+
+@media (max-width: 389px) {
+    .frame156 {
+        top: 580px;
+    }
+}
